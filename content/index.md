@@ -1,4 +1,4 @@
----
+---Project matlab encryption of random color images using genetic algorithm and neural network 
 title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
