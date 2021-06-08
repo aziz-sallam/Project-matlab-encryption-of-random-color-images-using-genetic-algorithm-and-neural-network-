@@ -24,7 +24,7 @@ export const SponsorsExamples = () => {
           )
         })}
       </div>
-      <Link href={`https://github.com/sponsors/community`} className="btn btn-outline float-right">
+      <Link href={'https://github.com/sponsors/community'} className="btn btn-outline float-right">
         {t('explore_people_and_projects')} <ArrowRightIcon />
       </Link>
     </div>

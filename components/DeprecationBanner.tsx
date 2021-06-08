@@ -29,7 +29,7 @@ export const DeprecationBanner = () => {
         </b>{' '}
         <span
           dangerouslySetInnerHTML={{
-            __html: data.reusables.enterprise_deprecation.deprecation_details,
+            __html: data.reusables.enterprise_deprecation.deprecation_details
           }}
         />
       </p>

@@ -9,7 +9,7 @@ import { AllProductsLink } from 'components/product/AllProductsLink'
 
 export const SidebarProduct = () => {
   const router = useRouter()
-  const { currentProductTree: currentProductTree } = useMainContext()
+  const { currentProductTree } = useMainContext()
 
   if (!currentProductTree) {
     return null
@@ -50,21 +50,23 @@ export const SidebarProduct = () => {
                       isStandaloneCategory && 'standalone-category'
                     )}
                   >
-                    {isStandaloneCategory ? (
+                    {isStandaloneCategory
+                      ? (
                       <Link
                         href={childPage.href}
                         className="pl-4 pr-2 py-2 f6 text-uppercase d-block flex-auto mr-3 color-text-primary no-underline"
                       >
                         {childTitle}
                       </Link>
-                    ) : (
+                        )
+                      : (
                       <CollapsibleSection
                         index={i}
                         routePath={routePath}
                         title={childTitle}
                         page={childPage}
                       />
-                    )}
+                        )}
                   </li>
                 )
               })}

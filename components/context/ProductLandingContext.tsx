@@ -79,11 +79,11 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       'beta_product',
       'intro',
       'product_video',
-      'changelog',
+      'changelog'
     ]),
     product: {
       href: productTree.href,
-      title: productTree.renderedShortTitle || productTree.renderedFullTitle,
+      title: productTree.renderedShortTitle || productTree.renderedFullTitle
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],
@@ -93,7 +93,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
     productUserExamples: (req.context.productUserExamples || []).map(
       ({ user, description }: any) => ({
         username: user,
-        description,
+        description
       })
     ),
 
@@ -101,7 +101,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
       ? {
           quickstart: page.introLinks.quickstart,
           reference: page.introLinks.reference,
-          overview: page.introLinks.overview,
+          overview: page.introLinks.overview
         }
       : null,
 
@@ -111,7 +111,7 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
           href: link.href,
           title: link.title,
           intro: link.intro,
-          authors: link.page.authors || [],
+          authors: link.page.authors || []
         }
       }
     ),
@@ -135,10 +135,10 @@ export const getProductLandingContextFromRequest = (req: any): ProductLandingCon
               href: link.href,
               title: link.title,
               intro: link.intro,
-              authors: link.page.authors || [],
+              authors: link.page.authors || []
             }
-          }),
+          })
         }
-      }),
+      })
   }
 }

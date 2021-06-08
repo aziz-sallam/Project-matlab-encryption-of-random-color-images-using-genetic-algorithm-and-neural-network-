@@ -36,6 +36,6 @@ export const useTranslation = (namespaces: string | Array<string>) => {
       } else {
         return get(loadedData[namespaces], path)
       }
-    },
+    }
   }
 }

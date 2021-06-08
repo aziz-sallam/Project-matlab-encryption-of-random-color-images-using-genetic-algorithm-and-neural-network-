@@ -4,7 +4,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 type Props = {
   track: LearningTrack
 }
-export function LearningTrackNav({ track }: Props) {
+export function LearningTrackNav ({ track }: Props) {
   const { t } = useTranslation('learning_track_nav')
   const { prevGuide, nextGuide, trackName } = track
   return (

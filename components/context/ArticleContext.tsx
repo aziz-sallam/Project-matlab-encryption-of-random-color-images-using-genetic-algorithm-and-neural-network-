@@ -48,7 +48,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
         return {
           indentationLevel: item.indentationLevel || 0,
           platform: item.platform || '',
-          contents: item.contents || '',
+          contents: item.contents || ''
         }
       }) || [],
     contributor: page.contributor || null,
@@ -56,6 +56,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     includesPlatformSpecificContent: page.includesPlatformSpecificContent || false,
     defaultPlatform: page.defaultPlatform || '',
     product: page.product || '',
-    currentLearningTrack: req.context.currentLearningTrack,
+    currentLearningTrack: req.context.currentLearningTrack
   }
 }

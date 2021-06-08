@@ -28,6 +28,6 @@ export const getTocLandingContextFromRequest = (req: any): TocLandingContextT =>
   return {
     title: req.context.page.title,
     introPlainText: req.context.page.introPlainText,
-    tocItems: req.context.tocItems || [],
+    tocItems: req.context.tocItems || []
   }
 }

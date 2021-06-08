@@ -49,11 +49,13 @@ const ArticleList = ({ page }: { page: CurrentProductTree }) => {
               className={cx('mb-3', !isShowingMore && index >= maxArticles ? 'd-none' : null)}
             >
               <Link href={grandchildPage.href}>{grandchildPage.page.title}</Link>
-              {grandchildPage.page.documentType === 'mapTopic' ? (
+              {grandchildPage.page.documentType === 'mapTopic'
+                ? (
                 <small className="color-text-secondary d-inline-block">
                   &nbsp;&bull; {page.childPages.length} articles
                 </small>
-              ) : null}
+                  )
+                : null}
             </li>
           )
         })}

@@ -7,7 +7,7 @@ const { NODE_ENV } = process.env
 const enableNextLinks = false
 
 type Props = { locale?: string } & ComponentProps<'a'>
-export function Link(props: Props) {
+export function Link (props: Props) {
   const { airGap } = useMainContext()
   const { href, locale, ...restProps } = props
 

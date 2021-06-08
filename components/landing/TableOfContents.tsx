@@ -21,11 +21,13 @@ export const TableOfContents = (props: Props) => {
 
         const { fullPath: href, title, intro } = item
         const isActive = router.pathname === href
-        return variant === 'compact' ? (
+        return variant === 'compact'
+          ? (
           <li key={href} className="f4 my-1">
             <Link href={href}>{title}</Link>
           </li>
-        ) : (
+            )
+          : (
           <li key={href} className={cx('mb-5', isActive && 'color-auto-gray-4')}>
             <Link
               href={href}
@@ -38,7 +40,7 @@ export const TableOfContents = (props: Props) => {
             </Link>
             {intro && <p className="f4 mt-3" dangerouslySetInnerHTML={{ __html: intro }} />}
           </li>
-        )
+            )
       })}
     </ul>
   )

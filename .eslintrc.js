@@ -5,10 +5,12 @@ module.exports = {
     es2020: true,
     node: true
   },
+  plugins: ['jsx-a11y'],
   parser: '@babel/eslint-parser',
   extends: [
     'eslint:recommended',
-    'standard'
+    'standard',
+    'plugin:jsx-a11y/recommended'
   ],
   parserOptions: {
     ecmaVersion: 11

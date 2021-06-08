@@ -8,17 +8,17 @@ import {
   PeopleIcon,
   CommentDiscussionIcon,
   ThumbsdownIcon,
-  ThumbsupIcon,
+  ThumbsupIcon
 } from '@primer/octicons-react'
 import { useVersion } from 'components/hooks/useVersion'
 import { AllProductsLink } from 'components/product/AllProductsLink'
 
-export default function Custom404(props: any) {
+export default function Custom404 (props: any) {
   const router = useRouter()
   const { currentVersion, isEnterprise } = useVersion()
 
   const contribution_href = router.locale
-    ? `https://github.com/github/docs/edit/main/content/`
+    ? 'https://github.com/github/docs/edit/main/content/'
     : 'https://github.com/github/docs'
 
   return (

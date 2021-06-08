@@ -1,18 +1,18 @@
 export const defaultCSSThemeProps = {
   colorMode: 'auto', // light, dark, auto
   nightScheme: 'dark',
-  dayScheme: 'light',
+  dayScheme: 'light'
 }
 export const defaultThemeProps = {
   colorMode: 'auto', // day, night, auto
   nightScheme: 'dark',
-  dayScheme: 'light',
+  dayScheme: 'light'
 }
 
 const cssColorModeToJs: Record<string, string> = {
   auto: 'auto',
   light: 'day',
-  dark: 'night',
+  dark: 'night'
 }
 
 export const getThemeProps = (req: any, mode?: 'css') => {
@@ -37,6 +37,6 @@ export const getThemeProps = (req: any, mode?: 'css') => {
       (mode === 'css' ? cookieValue.color_mode : cssColorModeToJs[cookieValue.color_mode || '']) ||
       defaultProps.colorMode,
     nightScheme: cookieValue.dark_theme?.name || defaultProps.nightScheme,
-    dayScheme: cookieValue.light_theme?.name || defaultProps.dayScheme,
+    dayScheme: cookieValue.light_theme?.name || defaultProps.dayScheme
   }
 }

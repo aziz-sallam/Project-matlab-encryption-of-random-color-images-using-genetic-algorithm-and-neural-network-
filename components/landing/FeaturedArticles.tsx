@@ -12,7 +12,7 @@ export const FeaturedArticles = () => {
     featuredArticles = [],
     changelog,
     whatsNewChangelog,
-    changelogUrl,
+    changelogUrl
   } = useProductLandingContext()
   const { t } = useTranslation('toc')
 
@@ -42,7 +42,7 @@ export const FeaturedArticles = () => {
               return {
                 title: link.title,
                 date: link.date,
-                href: link.href,
+                href: link.href
               }
             })}
           />

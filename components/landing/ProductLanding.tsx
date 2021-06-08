@@ -17,7 +17,7 @@ export const ProductLanding = () => {
     guideCards,
     productUserExamples,
     productCommunityExamples,
-    productCodeExamples,
+    productCodeExamples
   } = useProductLandingContext()
   const { t } = useTranslation('product_landing')
 

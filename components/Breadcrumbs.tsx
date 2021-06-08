@@ -23,11 +23,13 @@ export const Breadcrumbs = (props: Props) => {
         }
 
         const title = `${breadcrumb.documentType}: ${breadcrumb.title}`
-        return !breadcrumb.href ? (
+        return !breadcrumb.href
+          ? (
           <span key={title} title={title}>
             {breadcrumb.title}
           </span>
-        ) : (
+            )
+          : (
           <Link
             key={title}
             href={breadcrumb.href}
@@ -39,7 +41,7 @@ export const Breadcrumbs = (props: Props) => {
           >
             {breadcrumb.title}
           </Link>
-        )
+            )
       })}
     </nav>
   )

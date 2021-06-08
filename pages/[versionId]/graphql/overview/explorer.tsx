@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next'
 import {
   MainContextT,
   MainContext,
-  getMainContextFromRequest,
+  getMainContextFromRequest
 } from 'components/context/MainContext'
 import { Breadcrumbs } from 'components/Breadcrumbs'
 import { DefaultLayout } from 'components/DefaultLayout'
@@ -12,7 +12,7 @@ type Props = {
   mainContext: MainContextT
   graphqlExplorerUrl: string
 }
-export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
+export default function GQLExplorer ({ mainContext, graphqlExplorerUrl }: Props) {
   const { page, airGap } = mainContext
   return (
     <MainContext.Provider value={mainContext}>
@@ -29,9 +29,11 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
 
             <div className="mt-2">
               <div>
-                {airGap ? (
+                {airGap
+                  ? (
                   <p>GraphQL explorer is not available on this environment.</p>
-                ) : (
+                    )
+                  : (
                   <iframe
                     id="graphiql"
                     className="graphql-explorer"
@@ -40,7 +42,7 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
                   >
                     <p>You must have iframes enabled to use this feature.</p>
                   </iframe>
-                )}
+                    )}
               </div>
             </div>
           </article>
@@ -56,7 +58,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   return {
     props: {
       mainContext: getMainContextFromRequest(req),
-      graphqlExplorerUrl: req.context.graphql.explorerUrl,
-    },
+      graphqlExplorerUrl: req.context.graphql.explorerUrl
+    }
   }
 }

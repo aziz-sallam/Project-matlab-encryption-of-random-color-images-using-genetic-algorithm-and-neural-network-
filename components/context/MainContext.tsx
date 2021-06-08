@@ -121,11 +121,11 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
       ui: req.context.site.data.ui,
       reusables: {
         enterprise_deprecation: req.context.site.data.reusables.enterprise_deprecation,
-        policies: req.context.site.data.reusables.policies,
+        policies: req.context.site.data.reusables.policies
       },
       variables: {
-        release_candidate: req.context.site.data.variables.release_candidate,
-      },
+        release_candidate: req.context.site.data.variables.release_candidate
+      }
     },
     airGap: req.context.AIRGAP || false,
     currentCategory: req.context.currentCategory || '',
@@ -145,15 +145,15 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
           'pageVersion',
           'href',
           'relativePath',
-          'languageCode',
+          'languageCode'
         ])
       ),
-      hidden: req.context.page.hidden || false,
+      hidden: req.context.page.hidden || false
     },
     enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
       'isOldestReleaseDeprecated',
       'oldestSupported',
-      'nextDeprecationDate',
+      'nextDeprecationDate'
     ]),
     enterpriseServerVersions: req.context.enterpriseServerVersions,
     currentLanguage: req.context.currentLanguage,
@@ -167,8 +167,8 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
             nativeName: entry.nativeName || '',
             code: entry.code,
             hreflang: entry.hreflang,
-            wip: entry.wip || false,
-          },
+            wip: entry.wip || false
+          }
         ]
       })
     ),
@@ -176,7 +176,7 @@ export const getMainContextFromRequest = (req: any): MainContextT => {
     currentProductTree: req.context.currentProductTree
       ? getCurrentProductTree(req.context.currentProductTree)
       : null,
-    featureFlags: {},
+    featureFlags: {}
   }
 }
 
@@ -190,9 +190,9 @@ const getCurrentProductTree = (input: any): CurrentProductTree => {
       hidden: input.page.hidden || false,
       documentType: input.page.documentType,
       title: input.page.title,
-      shortTitle: input.page.shortTitle || '',
+      shortTitle: input.page.shortTitle || ''
     },
-    childPages: (input.childPages || []).map(getCurrentProductTree),
+    childPages: (input.childPages || []).map(getCurrentProductTree)
   }
 }
 

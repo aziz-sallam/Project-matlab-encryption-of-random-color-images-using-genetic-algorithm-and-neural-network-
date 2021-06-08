@@ -16,11 +16,15 @@ export const DefaultLayout = (props: Props) => {
   return (
     <div className="d-lg-flex">
       <Head>
-        {error === '404' ? (
+        {error === '404'
+          ? (
           <title>{t('oops')}</title>
-        ) : !isHomepageVersion && page.fullTitle ? (
+            )
+          : !isHomepageVersion && page.fullTitle
+              ? (
           <title>{page.fullTitle}</title>
-        ) : null}
+                )
+              : null}
 
         <script id="expose" type="application/json" dangerouslySetInnerHTML={{ __html: expose }} />
         <script src={builtAssets.main.js} />

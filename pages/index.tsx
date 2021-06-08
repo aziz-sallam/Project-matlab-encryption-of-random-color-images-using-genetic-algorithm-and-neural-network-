@@ -4,7 +4,7 @@ import {
   MainContextT,
   MainContext,
   getMainContextFromRequest,
-  useMainContext,
+  useMainContext
 } from 'components/context/MainContext'
 
 import { DefaultLayout } from 'components/DefaultLayout'
@@ -27,7 +27,7 @@ type Props = {
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
 }
-export default function MainLanding({ mainContext, gettingStartedLinks, popularLinks }: Props) {
+export default function MainLanding ({ mainContext, gettingStartedLinks, popularLinks }: Props) {
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
@@ -41,7 +41,7 @@ type LandingPageProps = {
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
 }
-function LandingPage(props: LandingPageProps) {
+function LandingPage (props: LandingPageProps) {
   const router = useRouter()
   const { gettingStartedLinks, popularLinks } = props
   const { activeProducts, isHomepageVersion } = useMainContext()
@@ -153,8 +153,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       popularLinks: req.context.featuredLinks.popular.map(({ title, href, intro }: any) => ({
         title,
         href,
-        intro,
-      })),
-    },
+        intro
+      }))
+    }
   }
 }

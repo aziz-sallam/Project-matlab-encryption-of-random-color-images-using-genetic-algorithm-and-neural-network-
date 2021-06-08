@@ -3,19 +3,19 @@ import { GetServerSideProps } from 'next'
 import {
   MainContextT,
   MainContext,
-  getMainContextFromRequest,
+  getMainContextFromRequest
 } from 'components/context/MainContext'
 
 import {
   getProductLandingContextFromRequest,
   ProductLandingContextT,
-  ProductLandingContext,
+  ProductLandingContext
 } from 'components/context/ProductLandingContext'
 
 import {
   getArticleContextFromRequest,
   ArticleContextT,
-  ArticleContext,
+  ArticleContext
 } from 'components/context/ArticleContext'
 import { ArticlePage } from 'components/article/ArticlePage'
 
@@ -24,7 +24,7 @@ import { TocLanding } from 'components/landing/TocLanding'
 import {
   getTocLandingContextFromRequest,
   TocLandingContext,
-  TocLandingContextT,
+  TocLandingContextT
 } from 'components/context/TocLandingContext'
 
 type Props = {
@@ -37,7 +37,7 @@ const GlobalPage = ({
   mainContext,
   productLandingContext,
   tocLandingContext,
-  articleContext,
+  articleContext
 }: Props) => {
   const { currentLayoutName, page, relativePath } = mainContext
 
@@ -83,7 +83,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext: getMainContextFromRequest(req),
       productLandingContext: getProductLandingContextFromRequest(req),
       tocLandingContext: getTocLandingContextFromRequest(req),
-      articleContext: getArticleContextFromRequest(req),
-    },
+      articleContext: getArticleContextFromRequest(req)
+    }
   }
 }

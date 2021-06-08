@@ -40,13 +40,15 @@ export const LanguagePicker = ({ variant }: Props) => {
                     : 'Link--primary no-underline'
                 )}
               >
-                {lang.nativeName ? (
+                {lang.nativeName
+                  ? (
                   <>
                     {lang.nativeName} ({lang.name})
                   </>
-                ) : (
-                  lang.name
-                )}
+                    )
+                  : (
+                      lang.name
+                    )}
               </Link>
             )
           })}
@@ -72,13 +74,15 @@ export const LanguagePicker = ({ variant }: Props) => {
           return (
             <Dropdown.Item key={lang.code}>
               <Link href={router.asPath} locale={lang.hreflang}>
-                {lang.nativeName ? (
+                {lang.nativeName
+                  ? (
                   <>
                     {lang.nativeName} ({lang.name})
                   </>
-                ) : (
-                  lang.name
-                )}
+                    )
+                  : (
+                      lang.name
+                    )}
               </Link>
             </Dropdown.Item>
           )

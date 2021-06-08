@@ -22,7 +22,7 @@ type Props = {
 }
 // Homepage and 404 should be `isStandalone`, all others not
 // `updateSearchParams` should be false on the GraphQL explorer page
-export function Search({ isStandalone = false, updateSearchParams = true, children }: Props) {
+export function Search ({ isStandalone = false, updateSearchParams = true, children }: Props) {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Array<SearchResult>>([])
   const [activeHit, setActiveHit] = useState(0)
@@ -33,7 +33,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   // Figure out language and version for index
   const { expose } = useMainContext()
   const {
-    searchOptions: { languages, versions, nonEnterpriseDefaultVersion },
+    searchOptions: { languages, versions, nonEnterpriseDefaultVersion }
   } = JSON.parse(expose)
   const router = useRouter()
   // fall back to the non-enterprise default version (FPT currently) on the homepage, 404 page, etc.
@@ -56,7 +56,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     return () => document.removeEventListener('keydown', searchWithYourKeyboard)
   }, [results, activeHit])
 
-  function searchWithYourKeyboard(event: KeyboardEvent) {
+  function searchWithYourKeyboard (event: KeyboardEvent) {
     switch (event.key) {
       case '/':
         // when the input is focused, `/` should have no special behavior
@@ -88,7 +88,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
   }
 
   // When the user finishes typing, update the results
-  async function onSearch(e: React.ChangeEvent<HTMLInputElement>) {
+  async function onSearch (e: React.ChangeEvent<HTMLInputElement>) {
     const xquery = e.target?.value?.trim()
     setQuery(xquery)
 
@@ -107,20 +107,20 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
 
   // If there's a query, call the endpoint
   // Otherwise, there's no results by default
-  async function fetchSearchResults(xquery: string) {
+  async function fetchSearchResults (xquery: string) {
     if (xquery) {
       const endpointUrl = new URL(location.origin)
       endpointUrl.pathname = '/search'
       const endpointParams: Record<string, string> = {
         language,
         version,
-        query: xquery,
+        query: xquery
       }
       endpointUrl.search = new URLSearchParams(endpointParams).toString()
 
       const response = await fetch(endpointUrl.toString(), {
         method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
       })
       setResults(response.ok ? await response.json() : [])
     } else {
@@ -131,20 +131,20 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
     if (xquery) {
       sendEvent({
         type: 'search',
-        search_query: xquery,
+        search_query: xquery
         // search_context
       })
     }
   }
 
   // Close panel if overlay is clicked
-  function closeSearch() {
+  function closeSearch () {
     setQuery('')
     setResults([])
   }
 
   // Prevent the page from refreshing when you "submit" the form
-  function preventRefresh(evt: React.FormEvent) {
+  function preventRefresh (evt: React.FormEvent) {
     evt.preventDefault()
   }
 
@@ -169,7 +169,7 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
                       <div
                         className="search-result-title d-block h4-mktg color-text-primary"
                         dangerouslySetInnerHTML={{
-                          __html: heading ? `${title}: ${heading}` : title,
+                          __html: heading ? `${title}: ${heading}` : title
                         }}
                       />
                       <div
@@ -222,14 +222,16 @@ export function Search({ isStandalone = false, updateSearchParams = true, childr
 
   return (
     <>
-      {typeof children === 'function' ? (
-        children({ SearchInput, SearchResults })
-      ) : (
+      {typeof children === 'function'
+        ? (
+            children({ SearchInput, SearchResults })
+          )
+        : (
         <>
           {SearchInput}
           {SearchResults}
         </>
-      )}
+          )}
     </>
   )
 }

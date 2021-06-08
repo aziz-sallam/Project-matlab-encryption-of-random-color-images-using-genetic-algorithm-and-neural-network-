@@ -20,7 +20,7 @@ export const ArticlePage = () => {
     defaultPlatform,
     product,
     miniTocItems,
-    currentLearningTrack,
+    currentLearningTrack
   } = useArticleContext()
   const { t } = useTranslation('pages')
   return (
@@ -140,11 +140,13 @@ export const ArticlePage = () => {
             </div>
           </div>
 
-          {currentLearningTrack?.trackName ? (
+          {currentLearningTrack?.trackName
+            ? (
             <div className="d-block mt-4 markdown-body">
               <LearningTrackNav track={currentLearningTrack} />
             </div>
-          ) : null}
+              )
+            : null}
         </article>
       </div>
     </DefaultLayout>

@@ -19,7 +19,15 @@ type Notif = {
 export const HeaderNotifications = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const { relativePath, allVersions, data, languages, currentLanguage, userLanguage, currentPathWithoutLanguage } = useMainContext()
+  const {
+    relativePath,
+    allVersions,
+    data,
+    languages,
+    currentLanguage,
+    userLanguage,
+    currentPathWithoutLanguage
+  } = useMainContext()
   const { t } = useTranslation('header')
 
   const translationNotices: Array<Notif> = []
@@ -27,25 +35,24 @@ export const HeaderNotifications = () => {
     if (relativePath?.includes('/site-policy')) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: data.reusables.policies.translation,
+        content: data.reusables.policies.translation
       })
     } else if (languages[currentLanguage].wip !== true) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: t('notices.localization_complete'),
+        content: t('notices.localization_complete')
       })
     } else if (languages[currentLanguage].wip) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: t('notices.localization_in_progress'),
+        content: t('notices.localization_in_progress')
       })
-    } 
+    }
   } else {
     if (userLanguage && userLanguage !== 'en' && languages[userLanguage]?.wip === false) {
       translationNotices.push({
         type: NotificationType.TRANSLATION,
-        content: 
-          `This article is also available in your language of choice. Click <a href="/${userLanguage}${currentPathWithoutLanguage}">here</a>`
+        content: `This article is also available in your language of choice. Click <a href="/${userLanguage}${currentPathWithoutLanguage}">here</a>`
       })
     }
   }
@@ -53,12 +60,12 @@ export const HeaderNotifications = () => {
   if (currentVersion === 'github-ae@latest') {
     releaseNotices.push({
       type: NotificationType.RELEASE,
-      content: t('notices.ghae_silent_launch'),
+      content: t('notices.ghae_silent_launch')
     })
   } else if (currentVersion === data.variables.release_candidate.version) {
     releaseNotices.push({
       type: NotificationType.RELEASE,
-      content: `${allVersions[currentVersion].versionTitle}${t('notices.release_candidate')}`,
+      content: `${allVersions[currentVersion].versionTitle}${t('notices.release_candidate')}`
     })
   }
 
@@ -69,9 +76,9 @@ export const HeaderNotifications = () => {
     (relativePath || '').includes('early-access/')
       ? {
           type: NotificationType.EARLY_ACCESS,
-          content: t('notices.early_access'),
+          content: t('notices.early_access')
         }
-      : null,
+      : null
   ].filter(ExcludesNull)
 
   return (

@@ -38,16 +38,18 @@ export const SidebarNav = (props: Props) => {
         </Link>
       </div>
       <nav>
-        {error === '404' || relativePath === 'index.md' ? (
+        {error === '404' || relativePath === 'index.md'
+          ? (
           <ul className="sidebar-products mt-4">
             {!isHomepageVersion && <AllProductsLink />}
             <SidebarHomepage />
           </ul>
-        ) : (
+            )
+          : (
           <ul className="sidebar-products">
             <SidebarProduct />
           </ul>
-        )}
+            )}
       </nav>
 
       <style jsx>
